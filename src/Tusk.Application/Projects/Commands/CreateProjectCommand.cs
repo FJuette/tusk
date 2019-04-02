@@ -17,7 +17,7 @@ namespace Tusk.Application.Projects.Commands
         {
             this.repository = repository;
         }
-        public Task<int> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
         {
             var entity = new Project
             {
@@ -25,7 +25,8 @@ namespace Tusk.Application.Projects.Commands
             };
 
             // Return the db id of the created entry, Task.FromResult to fake async
-            return repository.Add(entity);
+            entity = await repository.AddAsync(entity);
+            return entity.Id;
         }
     }
 }

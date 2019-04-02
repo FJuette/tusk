@@ -5,9 +5,7 @@ using Tusk.Domain;
 
 namespace Tusk.Application
 {
-    public interface IProjectRepository
+    public interface IProjectRepository : IGenericRepository<Project>
     {
-        IQueryable<Project> GetAll();
-        Task<int> Add(Project p);
     }
 }

@@ -24,7 +24,7 @@ namespace Tusk.Application.Projects.Queries
         public async Task<ProjectsListViewModel> Handle(GetAllProjectsQuery request, CancellationToken cancellationToken)
         {
             // Use async calls if possible
-            var projects = _repository.GetAll().Select(ProjectDto.Projection).ToList();
+            var projects = _repository.All().Select(ProjectDto.Projection).ToList();
 
             var model = new ProjectsListViewModel
             {

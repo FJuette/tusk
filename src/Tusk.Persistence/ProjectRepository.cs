@@ -6,24 +6,12 @@ using Tusk.Domain;
 
 namespace Tusk.Persistence
 {
-    public class ProjectRepository : IProjectRepository
+    public class ProjectRepository : GenericRepository<Project>, IProjectRepository
     {
         private readonly TuskDbContext _context;
-        public ProjectRepository(TuskDbContext context)
+        public ProjectRepository(TuskDbContext context) : base(context)
         {
             this._context = context;
-        }
-
-        public async Task<int> Add(Project p)
-        {
-            await _context.Projects.AddAsync(p);
-            await _context.SaveChangesAsync();
-            return p.Id;
-        }
-
-        public IQueryable<Project> GetAll()
-        {
-            return _context.Projects;
         }
     }
 }

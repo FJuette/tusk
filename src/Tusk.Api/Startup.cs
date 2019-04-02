@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Tusk.Application;
+using Tusk.Domain;
 using Tusk.Persistence;
 
 namespace Tusk.Api
