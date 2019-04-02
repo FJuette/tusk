@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tusk.Application;
 using Tusk.Application.Projects.Commands;
+using Tusk.Application.Projects.GetProject;
 using Tusk.Application.Projects.Queries;
 using Tusk.Domain;
 
@@ -14,6 +15,12 @@ namespace Tusk.Api.Controllers
         public async Task<ActionResult<ProjectsListViewModel>> Projects()
         {
             return Ok(await Mediator.Send(new GetAllProjectsQuery()));
+        }
+
+        [HttpGet("api/projects/{id}")]
+        public async Task<ActionResult<ProjectsListViewModel>> Project(int id)
+        {
+            return Ok(await Mediator.Send(new GetProjectQuery(id)));
         }
 
         [HttpPost("api/projects")]
