@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
 using Tusk.Domain;
 
@@ -27,6 +28,14 @@ namespace Tusk.Application.Projects.Commands
             // Return the db id of the created entry, Task.FromResult to fake async
             entity = await repository.AddAsync(entity);
             return entity.Id;
+        }
+    }
+
+    public class CreateCustomerValidator : AbstractValidator<CreateProjectCommand>
+    {
+        public CreateCustomerValidator()
+        {
+            RuleFor(x => x.Name).MaximumLength(50).NotEmpty();
         }
     }
 }

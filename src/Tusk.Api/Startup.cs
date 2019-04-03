@@ -18,6 +18,8 @@ using Tusk.Api.Filters;
 using Tusk.Application;
 using Tusk.Domain;
 using Tusk.Persistence;
+using FluentValidation.AspNetCore;
+using Tusk.Application.Projects.Commands;
 
 namespace Tusk.Api
 {
@@ -44,7 +46,12 @@ namespace Tusk.Api
                 options.UseInMemoryDatabase(new Guid().ToString()));
 
             services.AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilter)))
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation(fv => 
+                {
+                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerValidator>();
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

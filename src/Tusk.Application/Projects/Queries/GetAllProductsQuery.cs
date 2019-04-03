@@ -30,7 +30,8 @@ namespace Tusk.Application.Projects.Queries
             {
                 Projects = projects
             };
-            return model;
+            // Use Task.FromResult to disable warning
+            return await Task.FromResult(model);
         }
     }
 
