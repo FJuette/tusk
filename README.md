@@ -5,9 +5,9 @@ Lets see what we will get here.
 ## TODOs
 
   * [x] Add FluentValidation
-  * [ ] Add Validation error handling in exception filter
+  * [x] Add Validation error handling in exception filter -> not needed, only fluentvalidation is used
   * [ ] Add automapper
-  * [ ] Add swagger
+  * [x] Add swagger
   * [ ] Add xunit unit tests
   * [ ] Add xunit integration tests (api calls)
   * [ ] Add Delete example

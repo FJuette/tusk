@@ -20,6 +20,7 @@ using Tusk.Domain;
 using Tusk.Persistence;
 using FluentValidation.AspNetCore;
 using Tusk.Application.Projects.Commands;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Tusk.Api
 {
@@ -40,6 +41,12 @@ namespace Tusk.Api
 
             // Add Tusk services
             services.AddTransient<IProjectRepository, ProjectRepository>();
+            
+            // Add Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Tusk API", Version = "v1" });
+            });
 
             // Add DbContext using SQL Server Provider
             services.AddDbContext<TuskDbContext>(options => 
@@ -61,6 +68,17 @@ namespace Tusk.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tusk API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseMvc();
         }
