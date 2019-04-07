@@ -21,6 +21,8 @@ using Tusk.Persistence;
 using FluentValidation.AspNetCore;
 using Tusk.Application.Projects.Commands;
 using Swashbuckle.AspNetCore.Swagger;
+using AutoMapper;
+using FluentValidation;
 
 namespace Tusk.Api
 {
@@ -38,15 +40,22 @@ namespace Tusk.Api
         {
             // Add MediatR
             services.AddMediatR();
-
-            // Add Tusk services
-            services.AddTransient<IProjectRepository, ProjectRepository>();
             
             // Add Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "Tusk API", Version = "v1" });
             });
+
+            // Add AutoMapper
+            services.AddAutoMapper(cfg => {
+                cfg.AddProfiles(new [] {
+                    "Tusk.Application"
+                });
+            });
+
+            // Add Tusk services
+            services.AddTransient<IProjectRepository, ProjectRepository>();
 
             // Add DbContext using SQL Server Provider
             services.AddDbContext<TuskDbContext>(options => 
@@ -57,7 +66,7 @@ namespace Tusk.Api
                 .AddFluentValidation(fv => 
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-                    fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerValidator>();
+                    fv.RegisterValidatorsFromAssemblyContaining<CreateProjectValidator>();
                 });
         }
 

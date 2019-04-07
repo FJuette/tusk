@@ -11,10 +11,10 @@ namespace Tusk.Application.Projects.Commands
         public string Name { get; set; }
     }
 
-    public class CreateProductCommandHandler : IRequestHandler<CreateProjectCommand, int>
+    public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {
         private readonly IProjectRepository repository;
-        public CreateProductCommandHandler(IProjectRepository repository)
+        public CreateProjectCommandHandler(IProjectRepository repository)
         {
             this.repository = repository;
         }
@@ -31,9 +31,9 @@ namespace Tusk.Application.Projects.Commands
         }
     }
 
-    public class CreateCustomerValidator : AbstractValidator<CreateProjectCommand>
+    public class CreateProjectValidator : AbstractValidator<CreateProjectCommand>
     {
-        public CreateCustomerValidator()
+        public CreateProjectValidator()
         {
             RuleFor(x => x.Name).MaximumLength(50).NotEmpty();
         }
