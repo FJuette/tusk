@@ -10,7 +10,8 @@ Lets see what we will get here.
   * [x] Add swagger ->  see **ProjectController**
   * [ ] Add xunit unit tests
   * [ ] Add xunit integration tests (api calls)
-  * [ ] Add Delete example
+  * [x] Add Delete example
+  * [ ] Update example
   * [ ] Add epics
   * [ ] Add stories
   * [ ] Add tasks

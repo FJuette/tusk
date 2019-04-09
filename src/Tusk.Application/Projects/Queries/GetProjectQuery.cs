@@ -5,7 +5,7 @@ using MediatR;
 using Tusk.Application.Exceptions;
 using Tusk.Domain;
 
-namespace Tusk.Application.Projects.GetProject
+namespace Tusk.Application.Projects.Queries
 {
     public class GetProjectQuery : IRequest<ProjectViewModel>
     {
