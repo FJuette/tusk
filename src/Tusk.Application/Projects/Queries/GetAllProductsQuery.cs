@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Serilog;
 using Tusk.Common;
 using Tusk.Domain;
 
@@ -27,6 +28,8 @@ namespace Tusk.Application.Projects.Queries
 
         public async Task<ProjectsListViewModel> Handle(GetAllProjectsQuery request, CancellationToken cancellationToken)
         {
+            // Example logging call
+            Log.Information("Projects called");
             // Use async calls if possible
             var projects = _repository.All().Select(ProjectDto.Projection).ToList();
 
