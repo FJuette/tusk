@@ -1,19 +1,20 @@
 #!/bin/bash
+OLDNAME='Tusk'
 NEWNAME='Riki'
 rm -Rf ./../$NEWNAME
-cp -rf ./../tusk ./../$NEWNAME
+cp -rf ./../$OLDNAME ./../$NEWNAME
 cd ./../$NEWNAME
 rm -Rf .git
-rm -Rf ./src/Tusk.Common/obj
-rm -Rf ./src/Tusk.Api/obj
-rm -Rf ./src/Tusk.Api/bin
-rm -Rf ./src/Tusk.Persistence/obj
-rm -Rf ./src/Tusk.Persistence/bin
-rm -Rf ./src/Tusk.Domain/obj
-rm -Rf ./src/Tusk.Domain/bin
-rm -Rf ./src/Tusk.Application/obj
-rm -Rf ./src/Tusk.Application/bin
-rm -Rf ./src/Tusk.Infrastructure/obj
-find . -type d -name '*Tusk*' -print0 | xargs -0 -n1 bash -c 'mv "$0" "${0/Tusk/'$NEWNAME}'"';
-find . -type f -name '*Tusk*' -print0 | xargs -0 -n1 bash -c 'mv "$0" "${0/Tusk/'$NEWNAME}'"'
-find . -type f -name '*' -exec sed -i "" 's/Tusk/'$NEWNAME'/g' {} +
+rm -Rf ./src/$OLDNAME.Common/obj
+rm -Rf ./src/$OLDNAME.Api/obj
+rm -Rf ./src/$OLDNAME.Api/bin
+rm -Rf ./src/$OLDNAME.Persistence/obj
+rm -Rf ./src/$OLDNAME.Persistence/bin
+rm -Rf ./src/$OLDNAME.Domain/obj
+rm -Rf ./src/$OLDNAME.Domain/bin
+rm -Rf ./src/$OLDNAME.Application/obj
+rm -Rf ./src/$OLDNAME.Application/bin
+rm -Rf ./src/$OLDNAME.Infrastructure/obj
+find . -type d -name '*'$OLDNAME'*' -print0 | xargs -0 -n1 bash -c 'mv "$0" "${0/'$OLDNAME'/'$NEWNAME}'"';
+find . -type f -name '*'$OLDNAME'*' -print0 | xargs -0 -n1 bash -c 'mv "$0" "${0/'$OLDNAME'/'$NEWNAME}'"'
+find . -type f -name '*' -exec sed -i "" 's/'$OLDNAME'/'$NEWNAME'/g' {} +

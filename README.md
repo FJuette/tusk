@@ -11,7 +11,8 @@ Lets see what we will get here.
   * [ ] Add xunit unit tests
   * [ ] Add xunit integration tests (api calls)
   * [x] Add Delete example
-  * [ ] Update example
+  * [x] Update example
+  * [ ] Add SEQ as logging provider
   * [ ] Add epics
   * [ ] Add stories
   * [ ] Add tasks

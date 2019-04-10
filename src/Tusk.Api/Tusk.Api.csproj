@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Tusk.Domain\Tusk.Domain.csproj" />
     <ProjectReference Include="..\Tusk.Application\Tusk.Application.csproj" />
     <ProjectReference Include="..\Tusk.Persistence\Tusk.Persistence.csproj" />
+    <ProjectReference Include="..\Tusk.Infrastructure\Tusk.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

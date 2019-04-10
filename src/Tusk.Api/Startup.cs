@@ -23,6 +23,8 @@ using Tusk.Application.Projects.Commands;
 using Swashbuckle.AspNetCore.Swagger;
 using AutoMapper;
 using FluentValidation;
+using Tusk.Common;
+using Tusk.Infrastructure;
 
 namespace Tusk.Api
 {
@@ -56,6 +58,7 @@ namespace Tusk.Api
 
             // Add Tusk services
             services.AddTransient<IProjectRepository, ProjectRepository>();
+            services.AddTransient<IDateTime, MachineDateTime>();
 
             // Add DbContext using SQL Server Provider
             services.AddDbContext<TuskDbContext>(options => 

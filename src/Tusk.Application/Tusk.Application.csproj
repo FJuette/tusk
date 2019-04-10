@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tusk.Domain\Tusk.Domain.csproj" />
+    <ProjectReference Include="..\Tusk.Common\Tusk.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

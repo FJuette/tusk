@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Tusk.Common;
 using Tusk.Domain;
 
 namespace Tusk.Application.Projects.Queries
@@ -16,9 +17,12 @@ namespace Tusk.Application.Projects.Queries
     public class GetAllProjectsQueryHandler : IRequestHandler<GetAllProjectsQuery, ProjectsListViewModel>
     {
         private readonly IProjectRepository _repository;
-        public GetAllProjectsQueryHandler(IProjectRepository repository)
+        private readonly IDateTime _dt;
+
+        public GetAllProjectsQueryHandler(IProjectRepository repository, IDateTime dt)
         {
             _repository = repository;
+            _dt = dt;
         }
 
         public async Task<ProjectsListViewModel> Handle(GetAllProjectsQuery request, CancellationToken cancellationToken)
@@ -28,7 +32,8 @@ namespace Tusk.Application.Projects.Queries
 
             var model = new ProjectsListViewModel
             {
-                Projects = projects
+                Projects = projects,
+                Today = _dt.Now.ToString("dd.MM.yyyy")
             };
             // Use Task.FromResult to disable warning
             return await Task.FromResult(model);
@@ -39,6 +44,7 @@ namespace Tusk.Application.Projects.Queries
     public class ProjectsListViewModel
     {
         public IEnumerable<ProjectDto> Projects { get; set; }
+        public string Today { get; set; }
     }
 
     /*
