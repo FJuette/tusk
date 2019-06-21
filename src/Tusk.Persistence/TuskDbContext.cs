@@ -1,10 +1,11 @@
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
+using Tusk.Application.Interfaces;
 using Tusk.Domain;
 
 namespace Tusk.Persistence
 {
-    public class TuskDbContext : DbContext
+    public class TuskDbContext : DbContext, ITuskDbContext
     {
         public TuskDbContext(DbContextOptions options) : base(options)
         {
