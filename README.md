@@ -20,6 +20,7 @@ Inspired and cloned from https://github.com/JasonGT/NorthwindTraders
   * [ ] Add epics, stories, tasks
   * [ ] Add user and roles
   * [ ] Add a nice angular spa with material from ngx template (https://github.com/ngx-rocket/generator-ngx-rocket)
+  * [ ] User Health checks https://medium.com/it-dead-inside/implementing-health-checks-in-asp-net-core-a8331d16a180
 
 ### Maybes
 
