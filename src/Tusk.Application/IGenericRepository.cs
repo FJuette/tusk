@@ -15,6 +15,7 @@ namespace Tusk.Application
         Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
         Task<T> DeleteAsync(T entity);
         Task<T> UpdateAsync(T entity);
+        Task<bool> Check();
     }
 
 }

@@ -57,5 +57,10 @@ namespace Tusk.Persistence
             await _context.SaveChangesAsync();
             return entity;
         }
+
+        public Task<bool> Check()
+        {
+            return _context.Database.CanConnectAsync();
+        }
     }
 }

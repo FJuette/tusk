@@ -1,7 +1,7 @@
 # Tusk
 Lets see what we will get here.
 
-Mainky inspired by https://github.com/JasonGT/NorthwindTraders
+Inspired and cloned from https://github.com/JasonGT/NorthwindTraders
 
 
 ## TODOs
@@ -15,13 +15,16 @@ Mainky inspired by https://github.com/JasonGT/NorthwindTraders
   * [x] Add Delete example
   * [x] Update example
   * [x] Add serilog as logging provider
+  * [x] Add health status (https://medium.com/it-dead-inside/implementing-health-checks-in-asp-net-core-a8331d16a180)
   * [ ] Add business logic example
-  * [ ] Add epics
-  * [ ] Add stories
-  * [ ] Add tasks
-  * [ ] Add Identity Server
+  * [ ] Add epics, stories, tasks
   * [ ] Add user and roles
   * [ ] Add a nice angular spa with material from ngx template (https://github.com/ngx-rocket/generator-ngx-rocket)
+
+### Maybes
+
+  * [ ] Add GraphQL
+  * [ ] Add Identity Server
 
 ## Technologies
 

@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Tusk.Application.Interfaces;
 using Tusk.Domain;

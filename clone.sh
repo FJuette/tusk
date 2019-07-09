@@ -1,6 +1,6 @@
 #!/bin/bash
 OLDNAME='Tusk'
-NEWNAME='Riki'
+NEWNAME='Visage'
 rm -Rf ./../$NEWNAME
 cp -rf ./../$OLDNAME ./../$NEWNAME
 cd ./../$NEWNAME
